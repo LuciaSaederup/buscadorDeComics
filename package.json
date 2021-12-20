@@ -1,0 +1,20 @@
+{
+  "name": "buscadordecomics",
+  "version": "1.0.0",
+  "description": "ProyectoADA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch style/scss -o style/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuciaSaederup/buscadorDeComics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuciaSaederup/buscadorDeComics/issues"
+  },
+  "homepage": "https://github.com/LuciaSaederup/buscadorDeComics#readme"
+}
