@@ -7,3 +7,6 @@ fetch("http(s)://gateway.marvel.com/")
         console.log(data)
 
     })
+
+
+// "scss": "node-sass --watch style/scss -o style/css"
