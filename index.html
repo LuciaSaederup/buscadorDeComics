@@ -13,20 +13,26 @@
 <body>
     <div id="container">
         <section id="presentacion">
-            <div id="titulo-seccion" class="titulo-seccion">
+            <!-- <div id="titulo-seccion" class="titulo-seccion">
                 <div class="titulo">
                     <h1>BUSCADOR DE COMICS</h1>
                 </div>
-            </div>
+            </div> -->
             <div id="banner" class="banner">
 
             </div>
             <nav class="navbar" id="navbar">
-                <div class="buscador" id="buscador">
-                    <!-- <h2>Buscar</h2> -->
+                <section id="seccion-busqueda">
+                    <form id="form-busqueda">
+                        <input type="text" placeholder="Buscar comics" id="busqueda">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </section>
+                <!-- <div class="buscador" id="buscador">
+                     <h2>Buscar</h2> 
                     <label for="buscador">Buscar
                     <input type="text" id="input-buscador" class="input-buscador"></label>
-                </div>
+                </div> -->
                 <div class="filtros">
                     <!-- <h2>Filtros</h2> -->
                     <label for="filtros">Filtros
@@ -44,9 +50,9 @@
                 </div>
             </nav>
         </section>
-        <section id="seccion-comics">
+        <section id="tarjetas"></section>
 
-        </section>
+        <section id="detalle"></section>
     </div>
 </body>
 <script src="index.js"></script>

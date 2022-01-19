@@ -50,10 +50,20 @@ $color-terciario:red;
     }
 }
 
+button {
+    font-family: $tipografia-principal;
+    color: $color-terciario;
+    background-color: $color-principal;
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+}
+
 .banner {
     width: 100%;
-    height: 650px;
-    background-image: url("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5beaba975bafe86f2c2b41c4/marvel-heroes_0.jpg");
+    height: 600px;
+    background-image: url(/settings/images/cropped-cropped-marvel.jpeg);
+    background-size: cover;
 }
 
 @mixin tamaños-filtros {
