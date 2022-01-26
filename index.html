@@ -44,15 +44,27 @@
                         <option value="a-z">A-Z</option>
                         <option value="z-a">Z-A</option>
                         <option value="mas-nuevos">Mas Nuevos</option>
+                        
                         <option value="mas-viejos">Mas viejos</option>
                     </select>
                 </label>
                 </div>
             </nav>
         </section>
-        <section id="tarjetas"></section>
+        <section id="tarjetas">
+            <div id="div-tarjetas">
+                <article class="tarjetas" data-id="${data.id}">
+                    <h2>${data.title}</h2>
+                    <div>${data.dates.description}</div>
+                    <img src="${data.images}" alt="">
+                </article>
 
-        <section id="detalle"></section>
+            </div>
+        </section>
+
+        <section id="detalle">
+            <div></div>
+        </section>
     </div>
 </body>
 <script src="index.js"></script>

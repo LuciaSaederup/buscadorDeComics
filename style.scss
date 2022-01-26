@@ -89,3 +89,11 @@ button {
         @include tamaños-filtros();
     }
 }
+
+.tarjetas {
+    width: 300px;
+    height: 400px;
+    color: $color-principal;
+    border: 1px solid $color-secundario;
+    margin: 10px 10px;
+}
