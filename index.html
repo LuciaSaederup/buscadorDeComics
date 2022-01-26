@@ -11,35 +11,44 @@
 </head>
 
 <body>
-    <div id="container">
-        <section id="presentacion">
-            <nav id="navbar">
-                <div id="buscador">
-                    <h2>Buscar</h2>
-                    <input type="text" id="buscador">
+    <header>
+        <div>
+            <h1>Buscando Comics</h1>
+        </div>
+        <div class="banner"></div>
+    </header>
+    <main>
+        <div id="container">
+            <section id="presentacion">
+                <nav id="navbar">
+                    <div id="buscador">
+                        <h2>Buscar</h2>
+                        <input type="text" id="buscador">
+                    </div>
+                    <div>
+                        <h2>Filtros</h2>
+                        <select name="tipo" id="filtro-tipo">
+                        <option value="comic">Comic</option>
+                        <option value="personaje">Personaje</option>
+                    </select>
+                        <select name="orden" id="filtro-orden">
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
+                        <option value="mas-nuevos">Mas Nuevos</option>
+                        <option value="mas-viejos">Mas viejos</option>
+                    </select>
+                    </div>
+                </nav>
+            </section>
+            <div class="cards">
+                <h2>Resultados de su busqueda</h2>
+                <p class="cards_p"> Sin resultados</p>
+                <div class="cards_container">                  
                 </div>
-                <div>
-                    <h2>Filtros</h2>
-                    <select name="tipo" id="filtro-tipo">
-                    <option value="comic">Comic</option>
-                    <option value="personaje">Personaje</option>
-                </select>
-                    <select name="orden" id="filtro-orden">
-                    <option value="a-z">A-Z</option>
-                    <option value="z-a">Z-A</option>
-                    <option value="mas-nuevos">Mas Nuevos</option>
-                    <option value="mas-viejos">Mas viejos</option>
-                </select>
-                </div>
-            </nav>
-            <div id="banner">
-                <img src="https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5beaba975bafe86f2c2b41c4/marvel-heroes_0.jpg" alt="imagen marvel">
             </div>
-        </section>
-        <section id="seccion-comics">
-
-        </section>
-    </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
 </body>
 
 </html>
