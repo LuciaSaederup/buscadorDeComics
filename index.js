@@ -6,16 +6,11 @@ fetch(`http://gateway.marvel.com/v1/public/comics?ts=1000&apikey=${apiKey}`)
         return res.json()
     })
     .then((data) => {
-        console.log(data)
-            // hacerHTMLTarjetas(data.results)
+        hacerHTMLTarjetas(data.data.results)
     })
 
 
-// inputBuscar.onkeydown = (e) => {
-//     console.log(inputBuscar.value)
-// }
-// const busqueda = inputBuscar.value
-// document.getElementById("tarjetas")
+
 const form = document.querySelector("#form-busqueda")
 const inputBusqueda = document.querySelector("#busqueda")
 const seccionTarjetas = document.getElementById("div-tarjetas")
@@ -26,74 +21,33 @@ const buscarComic = (busqueda) => {
     fetch(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${busqueda}&apikey=${apiKey}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             hacerHTMLTarjetas(data.data.results)
+
         })
-        // get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${busqueda}&apikey=${apiKey}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         hacerHTMLTarjetas(data.results)
-        //     })
+
 }
 
-// const buscarComicPorId = (id) => {
-//     fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?apikey=${apiKey}`)
-//         .then(res => res.json())
-//         .then(data => {
-//             crearVistaDetalle(data)
-//         })
-// }
+
 
 
 const hacerHTMLTarjetas = (data) => {
-    // seccionTarjetas.style.display = "flex"
-    // seccionDetalle.style.display = "none"
-    seccionTarjetas.innerHTML =
-        data.map((comic) => {
-            let acc = ``
-            return acc + `
-      <article class="tarjetas" data-id="${comic.id}">
-        <h2>${comic.title}</h2>
-        <div>${comic.dates.description}</div>
-        <img src="${comic.images}" alt="">
-      </article>
-    `
-        })
+    const htmlAimprimir = data.reduce((acc, comic) => {
+        return acc + `<div class="tarjetas" data-id="${comic.id}" style="background-image: url(${comic.thumbnail.path}.${comic.thumbnail.extension})">
 
-
+        <h2 class="titulo-tarjeta">${comic.title}</h2>
+        
+        
+      </div>`
+    }, "")
+    seccionTarjetas.innerHTML = htmlAimprimir
 }
 
-// asignarClickATarjetas()
-// const crearVistaDetalle = (data) => {
-//     seccionTarjetas.style.display = "none"
-//     seccionDetalle.style.display = "flex"
 
-//     seccionDetalle.innerHTML = `
-//     <article class="detalle-producto">
-//     <h2>${data.title}</h2>
-//     ${mostrarEnvioGratuito(data.shipping.free_shipping)}
-//     </article>
-//   `
-// }
+const todasLasTarjetas = document.querySelectorAll(".tarjetas")
+console.log(todasLasTarjetas)
 
-// const asignarClickATarjetas = () => {
-//     const tarjetas = document.querySelectorAll(".tarjeta")
-//     for (let i = 0; i < tarjetas.length; i++) {
-//         tarjetas[i].onclick = () => {
-//             const id = tarjetas[i].dataset.id
-//             buscarComicPorId(id)
-//         }
-//     }
-//}
 
-// const mostrarImagenTarjeta = (img) => {
-//     if (img) {
-//         return `<img src="${img}"></img>`
-//     } else {
-//         `<img src="not-found.jpeg">`
-//     }
-// }
+
 
 
 form.onsubmit = (e) => {
