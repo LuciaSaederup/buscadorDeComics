@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Comics</title>
-
+    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -40,11 +40,17 @@
                     </div>
                 </nav>
             </section>
-            <div class="cards">
-                <h2>Resultados de su busqueda</h2>
-                <p class="cards_p"> Sin resultados</p>
-                <div class="cards_container">                  
+            <div class="cardsSection">
+                <h2 class="cards-h2" id="cardsResultados">Resultados de su busqueda</h2>
+                <p class="cards-p" id="cardsSinResultados"> Sin resultados</p>
+                <div class="cards-container" id="cardsContainer">             
                 </div>
+            </div>
+            <div class="paginas">
+                <button id="firstPage"><i class="fas fa-step-backward"></i></button>
+                <button id="PreviousPage"><i class="fas fa-chevron-circle-left"></i></button>
+                <button id="nextPage"><i class="fas fa-chevron-circle-right"></i></button>
+                <button id="lastPage"><i class="fas fa-step-forward"></i></button>
             </div>
         </div>
     </main>
