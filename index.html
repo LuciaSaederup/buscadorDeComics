@@ -13,33 +13,56 @@
 <body>
     <div id="container">
         <section id="presentacion">
-            <nav id="navbar">
-                <div id="buscador">
-                    <h2>Buscar</h2>
-                    <input type="text" id="buscador">
+            <div id="titulo-seccion" class="titulo-seccion">
+                <div class="titulo">
+                    <h1>BUSCADOR DE COMICS</h1>
                 </div>
-                <div>
-                    <h2>Filtros</h2>
+            </div>
+            <div id="banner" class="banner">
+
+            </div>
+            <nav class="navbar" id="navbar">
+                <div class="buscador" id="buscador">
+                    <!-- <h2>Buscar</h2> -->
+                    <label for="buscador">Buscar
+                    <input type="text" id="buscador" class="input-buscador"></label>
+                </div>
+                <div class="filtros">
+                    <!-- <h2>Filtros</h2> -->
+                    <label for="filtros">Filtros
                     <select name="tipo" id="filtro-tipo">
-                    <option value="comic">Comic</option>
-                    <option value="personaje">Personaje</option>
-                </select>
+                        <option value="comic">Comic</option>
+                        <option value="personaje">Personaje</option>
+                    </select>
                     <select name="orden" id="filtro-orden">
-                    <option value="a-z">A-Z</option>
-                    <option value="z-a">Z-A</option>
-                    <option value="mas-nuevos">Mas Nuevos</option>
-                    <option value="mas-viejos">Mas viejos</option>
-                </select>
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
+                        <option value="mas-nuevos">Mas Nuevos</option>
+                        <option value="mas-viejos">Mas viejos</option>
+                    </select>
+                </label>
                 </div>
             </nav>
-            <div id="banner">
-                <img src="https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5beaba975bafe86f2c2b41c4/marvel-heroes_0.jpg" alt="imagen marvel">
-            </div>
         </section>
         <section id="seccion-comics">
 
         </section>
+        
+        <div id="personajes"></div>
+
+        <div id="controles">
+            <button id="prev">Pagina anterior</button>
+            <button id="next">Proxima pagina</button>
+        </div>
+        
+        
+        
+        
+
+
+
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
