@@ -1,3 +1,11 @@
+const paginadoComic = document.querySelector("#controles")
+const paginadoPersonaje = document.querySelector("#controles-personaje")
+
+
+
+
+
+
 fetch("http(s)://gateway.marvel.com/")
     .then((res) => {
 
@@ -21,14 +29,14 @@ fetch (`https://gateway.marvel.com/v1/public/comics?ts=1&apikey=93c0e369ba23b10f
 let comicGlobal = 0
 
 
-/*
-character 018
-ver form y select de html 0123*/
+
 const listaComics = () => {
 fetch (`https://gateway.marvel.com:443/v1/public/comics?offset=${comicGlobal}&apikey=93c0e369ba23b10fe80edb027c368e12`)
 .then((res) => res.json())
 .then((data) => {
     console.log(data.data.results)
+    paginadoPersonaje.style.display = "none"
+    paginadoComic.style.display = "block"
   crearTarjetasComics(data.data.results)
      })
  }
@@ -85,13 +93,16 @@ if (comicGlobal === 0) {
  
 personajesASaltar = 0
 
+
  
  const listaPersonajes = () => {
     fetch (`https://gateway.marvel.com:443/v1/public/characters?offset=${personajesASaltar}&apikey=93c0e369ba23b10fe80edb027c368e12`)
     .then((res) => res.json())
     .then((data) => {
         console.log(data.data.results)
-      crearTarjetasComics(data.data.results)
+        paginadoComic.style.display = "none"
+        paginadoPersonaje.style.display = "block"
+      crearTarjetasPersonaje(data.data.results)
          })
      }
     
@@ -109,10 +120,53 @@ personajesASaltar = 0
         personajes.innerHTML = html
      }
      
+     const selectFiltro = document.querySelector("#filtro-tipo")
+     const botonBuscar = document.querySelector("#boton-buscar")
 
+     botonBuscar.onclick = (e) => {
+        e.preventDefault()
 
+        if (selectFiltro.value === "comic"){
+            listaComics ()
 
+        }
+        
+        else if (selectFiltro.value === "personaje"){
+            listaPersonajes ()
 
-
-
+        }
+     }
+     
+       
+     
+     const prevPersonaje = document.querySelector("#prev-personaje")
+     const nextPersonaje = document.querySelector("#next-personaje")
+     
+     
+     if (personajesASaltar === 0) {
+         prev.disabled = true
+     }
+     
+     
+      nextPersonaje.onclick = () => {
+          
+        personajesASaltar += 20
+         listaPersonajes()
+         prev.disabled = false
+         
+      }
+     
+      prevPersonaje.onclick = () => {
+       
+         if (personajesASaltar === 20) {
+             prev.disabled = true
+         }
+     
+        
+         personajesASaltar -= 20
+         listaPersonajes()
+       
+      }
+     
+     
 
