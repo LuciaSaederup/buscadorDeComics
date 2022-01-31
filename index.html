@@ -8,51 +8,52 @@
     <title>Buscador de Comics</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.scss">
+
 </head>
 
 <body>
     <div id="container">
         <section id="presentacion">
-            <div id="titulo-seccion" class="titulo-seccion">
-                <div class="titulo">
-                    <h1>BUSCADOR DE COMICS</h1>
-                </div>
-            </div>
+
             <div id="banner" class="banner">
 
             </div>
             <nav class="navbar" id="navbar">
-                <div class="buscador" id="buscador">
-                    <!-- <h2>Buscar</h2> -->
-                    <label for="buscador">Buscar
-                    <input type="text" id="buscador" class="input-buscador"></label>
-                </div>
+                <section id="seccion-busqueda">
+                    <form id="form-busqueda">
+                        <input type="text" placeholder="Buscar comics" id="busqueda">
+                        <button type="submit" id="boton-buscar">Buscar</button>
+                    </form>
+                </section>
+
                 <div class="filtros">
-                    <!-- <h2>Filtros</h2> -->
                     <form>
                         <label for="filtros">Filtros
-                        <select name="tipo" id="filtro-tipo">
-                            <option value="comic">Comic</option>
-                            <option value="personaje">Personaje</option>
-                        </select>
-                        <div id="contenedor">
-                        <select name="orden" id="filtro-orden">
-                            <option value="a-z">A-Z</option>
-                            <option value="z-a">Z-A</option>
-                        </select>
-                    </div>
-                    </label>
-                    <button type="submit" id="boton-buscar">Buscar</button>
+                            <select name="tipo" id="filtro-tipo">
+                                <option value="comic">Comic</option>
+                                <option value="personaje">Personaje</option>
+                            </select>
+                            <select name="orden" id="filtro-orden">
+                                <option value="a-z">A-Z</option>
+                                <option value="z-a">Z-A</option>
+                                <option value="nuevos">Mas Nuevos</option>    
+                                <option value="viejos">Mas viejos</option>
+                            </select>
+                        </label>
                     </form>
                 </div>
             </nav>
         </section>
-        <section id="seccion-comics">
+        <section id="tarjetas">
+            <div id="div-tarjetas" class="contenedor-tarjetas">
 
+            </div>
         </section>
-        
-        <div id="personajes"></div>
 
+        <section id="detalle">
+            <div></div>
+        </section>
         <div id="controles">
             <button id="prev">Pagina anterior</button>
             <button id="next">Proxima pagina</button>
@@ -61,16 +62,10 @@
             <button id="prev-personaje">Pagina anterior</button>
             <button id="next-personaje">Proxima pagina</button>
         </div>
-        
-       
-    
-        
-        
-
-
-
     </div>
-    <script src="index.js"></script>
 </body>
+<script src="index.js"></script>
 
 </html>
+
+

@@ -42,7 +42,7 @@
   .banner {
     width: 100%;
     height: 650px;
-    background-image: url("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5beaba975bafe86f2c2b41c4/marvel-heroes_0.jpg");
+    background-image: url(/settings/images/cropped-cropped-marvel.jpeg);
   }
   
   .navbar {
