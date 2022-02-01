@@ -6,7 +6,8 @@ const selectFiltro = document.querySelector("#filtro-tipo")
 const selectFiltroOrden = document.querySelector("#filtro-orden")
 const botonBuscar = document.querySelector("#boton-buscar")
 
-
+let globalOrdenBy = ""
+let busqueda =""
 
 const form = document.querySelector("#form-busqueda")
 const inputBusqueda = document.querySelector("#busqueda")
@@ -14,8 +15,8 @@ const seccionTarjetas = document.getElementById("div-tarjetas")
 const seccionDetalle = document.querySelector("#detalle")
 const tarjetas = document.querySelectorAll("#tarjetas")
 
-const apiKey = `6b2bc991445804822542c0b2bb571677`;
-const hash = `74961f9a613e22d279d8d3d4215c1c7b`;
+//const apiKey = `6b2bc991445804822542c0b2bb571677`;
+//const hash = `74961f9a613e22d279d8d3d4215c1c7b`;
 
 fetch("http(s)://gateway.marvel.com/")
     .then((res) => {
@@ -27,7 +28,7 @@ fetch("http(s)://gateway.marvel.com/")
 
     })
 
-    fetch (`https://gateway.marvel.com/v1/public/comics?ts=1&apikey=6b2bc991445804822542c0b2bb571677`)
+    fetch (`https://gateway.marvel.com/v1/public/comics?ts=1&apikey=93c0e369ba23b10fe80edb027c368e12`)
     .then (res=> res.json())
     .then(data => console.log(data))
     
@@ -37,7 +38,7 @@ fetch("http(s)://gateway.marvel.com/")
     const listaComics = () => {
     console.log(busqueda)
     
-    fetch(`https://gateway.marvel.com:443/v1/public/comics?${busqueda}orderBy=${globalOrdenBy}&offset=${comicGlobal}&apikey=6b2bc991445804822542c0b2bb571677`)
+    fetch(`https://gateway.marvel.com:443/v1/public/comics?${busqueda}orderBy=${globalOrdenBy}&offset=${comicGlobal}&apikey=93c0e369ba23b10fe80edb027c368e12`)
     
     .then((res) => res.json())
     .then((data) => {
@@ -89,7 +90,7 @@ let htmlAimprimir = data.reduce((acc, comic) => {
 
 
  const listaPersonajes = () => {
-    fetch (`https://gateway.marvel.com:443/v1/public/characters?${busqueda}orderBy=${globalOrdenBy}&offset=${personajesASaltar}&apikey=6b2bc991445804822542c0b2bb571677`)
+    fetch (`https://gateway.marvel.com:443/v1/public/characters?${busqueda}orderBy=${globalOrdenBy}&offset=${personajesASaltar}&apikey=93c0e369ba23b10fe80edb027c368e12`)
     .then((res) => res.json())
     .then((data) => {
         console.log(data.data.results)
