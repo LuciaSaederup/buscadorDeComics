@@ -170,3 +170,72 @@ prevPersonaje.onclick = () => {
    listaPersonajes()
  
 }
+
+
+
+
+//  boton para filtros y busqueda
+
+botonBuscar.onclick = (e) => {
+   e.preventDefault()
+
+   if (selectFiltro.value === "comic"){
+       if(selectFiltroOrden.value === "a-z")
+       {
+          globalOrdenBy = "title"  
+
+       }else{
+          globalOrdenBy = "-title"
+       }
+
+       if(selectFiltroOrden.value === "viejos")
+       {
+          globalOrdenBy = "onsaleDate" 
+        
+       }
+       if(selectFiltroOrden.value === "nuevos")
+       
+       {
+          globalOrdenBy = "-onsaleDate"
+       }
+
+       console.log(globalOrdenBy)
+       if(inputBusqueda.value === ""){
+          busqueda =""
+          
+       
+       }else{
+          busqueda="titleStartsWith="+inputBusqueda.value+"&"
+
+       }
+       
+       listaComics()
+
+   }
+   
+   else if (selectFiltro.value === "personaje"){
+       if(selectFiltroOrden.value === "a-z")
+       {
+          globalOrdenBy = "name"  
+
+       }else{
+          globalOrdenBy = "-name"
+       }
+       console.log(globalOrdenBy)
+       if(inputBusqueda.value === ""){
+          busqueda =""
+          
+       
+       }else{
+          busqueda="nameStartsWith="+inputBusqueda.value+"&"
+
+       }
+
+       listaPersonajes ()
+
+   }
+}
+
+
+
+
