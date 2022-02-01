@@ -1,101 +1,7 @@
 * {
-
-    padding: 0px;
-  }
-  
-  @font-face {
-    font-family: Benton;
-    src: url("/settings/fonts/BentonSansCompBlackRegular.otf");
-  }
-  @font-face {
-    font-family: Beba;
-    src: url("/settings/fonts/Bebas-Regular.otf");
-  }
-  .container {
-    width: 100%;
-    height: auto;
-  }
-  
-  .titulo-seccion {
-    background-color: black;
-    color: red;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .titulo {
-    background-color: white;
-    text-align: center;
-    align-content: center;
-    height: 60px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-  }
-  .titulo h1 {
-    font-family: "Beba";
-    font-size: 50px;
-    margin-top: 0px;
-    letter-spacing: -2px;
-  }
-  
-  .banner {
-    width: 100%;
-    height: 650px;
-    background-image: url(/settings/images/cropped-cropped-marvel.jpeg);
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: red;
-    color: white;
-    padding: 20px;
-  }
-  .navbar label {
-    font-size: 30px;
-    font-family: "Beba";
-  }
-  .navbar input,
-  .navbar select {
-    height: 50px;
-    width: 300px;
-    font-size: 30px;
-    font-family: "Beba";
-  }
-  
-  /*# sourceMappingURL=style.css.map */
-
-
-
-
-  button{
-    height:80px;
-    width: 150px;
- 
-   }
-
-#controles-personaje{
-  display: none;
-
-}
-
-
-
-
-
-
-* {
   padding: 0px;
   box-sizing: border-box;
 }
-
-
-
-
 
 @font-face {
   font-family: Benton;
@@ -201,4 +107,13 @@ button {
 .tarjetas .contenedor-imagen img {
   width: 100%;
 }
+
+/*# sourceMappingURL=style.css.map */
+
+
+
+
+
+
+
 

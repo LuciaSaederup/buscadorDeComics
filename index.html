@@ -8,8 +8,6 @@
     <title>Buscador de Comics</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.scss">
-
 </head>
 
 <body>
@@ -23,16 +21,11 @@
                 <section id="seccion-busqueda">
                     <form id="form-busqueda">
                         <input type="text" placeholder="Buscar comics" id="busqueda">
-
-                      
-
-                        <button type="submit">Buscar</button>
-
+                        <button type="submit" id="boton-buscar">Buscar</button>
                     </form>
                 </section>
 
                 <div class="filtros">
-
                     <form>
                         <label for="filtros">Filtros
                             <select name="tipo" id="filtro-tipo">
@@ -47,22 +40,8 @@
                             </select>
                         </label>
                     </form>
-
-                    <label for="filtros">Filtros
-                    <select name="tipo" id="filtro-tipo">
-                        <option value="comic">Comic</option>
-                        <option value="personaje">Personaje</option>
-                    </select>
-                    <select name="orden" id="filtro-orden">
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                        <option value="mas-nuevos">Mas Nuevos</option>
-                        
-                        <option value="mas-viejos">Mas viejos</option>
-                    </select>
-                </label>
-
                 </div>
+
             </nav>
         </section>
         <section id="tarjetas">
@@ -74,6 +53,7 @@
         <section id="detalle">
             <div></div>
         </section>
+        
         <div id="controles">
             <button id="prev">Pagina anterior</button>
             <button id="next">Proxima pagina</button>
@@ -82,10 +62,9 @@
             <button id="prev-personaje">Pagina anterior</button>
             <button id="next-personaje">Proxima pagina</button>
         </div>
+        
     </div>
 </body>
 <script src="index.js"></script>
 
-
 </html>
-
