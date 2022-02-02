@@ -117,3 +117,31 @@ let htmlAimprimir = data.reduce((acc, comic) => {
         seccionTarjetas.innerHTML = htmlAimprimir
      }
      
+
+
+
+     //Ocultar ciertas opciones "value" en personajes
+     selectFiltro.onchange = () => {
+      console.log(selectFiltro.value)
+
+      if (selectFiltro.value === "personaje"){
+        selectFiltroOrden.remove(2)
+        selectFiltroOrden.remove(2)
+        }
+        else {
+          
+           const option = document.createElement('option');
+           option.value = "nuevos";
+           option.text = "Mas Nuevos";
+           selectFiltroOrden.appendChild(option);
+
+           const option2 = document.createElement('option');
+           option2.value = "viejos";
+           option2.text = "Mas Viejos";
+           selectFiltroOrden.appendChild(option2);
+
+           }
+
+     } 
+
+
