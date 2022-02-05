@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Comics</title>
-    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
+    <script src="https://kit.fontawesome.com/2d575903b5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,28 +18,42 @@
         <div class="banner"></div>
     </header>
     <main>
-        <div id="container">
-            <section id="presentacion">
-                <nav id="navbar">
-                    <div id="buscador">
-                        <h2>Buscar</h2>
-                        <input type="text" id="buscador">
+        <div class="searchSection">
+            <h2 class="searchTitle-h2">BUSQUEDA DE COMICS</h2>
+            <form id="formSearch" class="searchContainer">
+                <div class="seccion-busqueda">
+                    <i class="fas fa-search fa-2x"></i>
+                    <input name="searchTxt" class="search-input" id ="search" type="text" placeholder=" Escribe tu busqueda aquí">
+                </div>
+                <div class="searchFunciones">
+                    <div class="searchSelectors">
+                        <div class="selectorContainer">
+                            <label for="type" class="selectorContainer-label ">Tipo</label>
+                            <select name="type" id="type" class="selectorContainer-select">
+                                <option value="comics" class="options-style-1">COMICS</option>
+                                <option value="characters"class="options-style-1" >PERSONAJES</option>
+                            </select>
+                        </div>
+                        <div class="selectorContainer">
+                            <label class="selectorContainer-label">Ordenado por</label>
+                            <select name="orderComicsBy" id="orderComicsBy" class="selectorContainer-select">
+                                <option value="title"class="options-style-2" > A - Z </option>
+                                <option value="-title" class="options-style-2"> Z - A </option>
+                                <option value="-focDate" class="options-style-2">Recientes</option>
+                                <option value="focDate" class="options-style-2">Antiguos</option>
+                            </select>
+                            <select name="orderCharactersBy" id="orderCharactersBy" class="selectorContainer-select d-none">
+                                <option value="name" class="options-style-2">A-Z</option>
+                                <option value="-name" class="options-style-2">Z-A</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <h2>Filtros</h2>
-                        <select name="tipo" id="filtro-tipo">
-                        <option value="comic">Comic</option>
-                        <option value="personaje">Personaje</option>
-                    </select>
-                        <select name="orden" id="filtro-orden">
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                        <option value="mas-nuevos">Mas Nuevos</option>
-                        <option value="mas-viejos">Mas viejos</option>
-                    </select>
+                    <div class="searchButton">
+                        <input type="submit" value="BUSCAR" class="searchButton-input">
                     </div>
-                </nav>
-            </section>
+                </div>
+            </form>
+        </div>
             <div class="cardsSection">
                 <h2 class="cards-h2" id="cardsResultados">Resultados de su busqueda</h2>
                 <p class="cards-p" id="cardsSinResultados"> Sin resultados</p>
