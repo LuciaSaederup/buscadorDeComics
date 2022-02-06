@@ -332,6 +332,68 @@ const createCardInfo = async () => {
 };
 createCardInfo();
 
+const formSearch = document.getElementsByClassName("searchContainer")[0];
+const search = (event) => {
+    event.preventDefault();
+    const formData = event.target;
+    const developerPass = new URLSearchParams();
+    developerPass.set('type', formData.type.value);
+    if (formData.type.value === "comics") {
+        developerPass.set('orderBy', "" + formData.orderComicsBy.value);
+    }
+    else {
+        developerPass.set('orderBy', "" + formData.orderCharactersBy.value);
+    }
+    developerPass.set('searchTxt', "" + formData.searchTxt.value);
+    developerPass.set('page', '1');
+    window.location.href = "index.html?" + developerPass.toString();
+};
+formSearch.addEventListener('submit', search);
+
+
+const filtros = async (offset, searchTxt, type, orderBy) => {
+    let response = [];
+    let inDeveloperPass = `?ts=1&apikey=${apiKey}&hash=${hash}&offset=${offset}&orderBy=${orderBy}`;
+    try{
+        if(searchTxt === "" || searchTxt === null){
+            if(type === "comics"){
+                response= await getComics(inDeveloperPass);
+            }else{
+                response = await getCharacters(inDeveloperPass);
+            }    
+        }else{
+            if(type === "comics"){
+                inDeveloperPass += `&titleStartsWith=${searchTxt}`
+                response = await getComics(inDeveloperPass);
+            }else{
+                inDeveloperPass += `&nameStartsWith=${searchTxt}`
+                response = await getCharacters(inDeveloperPass);
+            }
+        }
+        createCards(response, type);
+        disableButtons(response);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+const developerPass = new URLSearchParams(window.location.search);
+    let searchTxt = developerPass.get("searchTxt");
+    let type = developerPass.get("type");
+    let orderBy = developerPass.get("orderBy");
+    let offset = developerPass.get("offset");
+if(window.location.search === ""){ 
+    location.replace(`${window.location.pathname}?type=comics&orderBy=title&searchTxt=&page=1`);
+    filtros(offset || "0", searchTxt || "", type || "comics", orderBy || "title");
+} else {
+    filtros(offset, searchTxt, type, orderBy);
+}
+
+
+
+
 
 
 
