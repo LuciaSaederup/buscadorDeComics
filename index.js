@@ -46,5 +46,48 @@ const createCards =  (response, type)=> {
         });
 };   
 
+const getComics= async (developerPass) => {
+    let data = [];
+    try {
+        const response = await fetch(`${marvelUrl}comics${developerPass}`);
+        data = await response.json();
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        return data;
+    }
+};
+
+const getCharacters = async (developerPass) => {
+    let data = [];
+    try {
+        const response = await fetch(`${marvelUrl}characters${developerPass}`);
+        data = await response.json();
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        return data;
+    }
+};
+
+const getPages = async (required) => {
+    let totalPages = 0;
+    try{
+        const response = await required;
+        const limit = response.data.limit;
+        const total = response.data.total;
+        totalPages = total / limit;
+        if(totalPages%1 !== 0){
+            totalPages = Math.ceil(totalPages);
+        }
+        return totalPages;
+    }
+    catch(error){
+        console.log(error);
+        return totalPages;
+    }
+}
 
 
