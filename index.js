@@ -90,4 +90,248 @@ const getPages = async (required) => {
     }
 }
 
+const disableButtons = async (required) => {
+    const developerPass = new URLSearchParams(window.location.search);
+    try {
+        
+        if (parseInt(developerPass.get("page")) === 1) {
+
+            previousPage.classList.remove('enabledButton');
+            previousPage.classList.add('disabledButton');
+            previousPage.disabled = true;
+            firstPage.classList.remove('enabledButton');
+            firstPage.classList.add('disabledButton');
+            firstPage.disabled = true;
+        }
+        else {
+
+            previousPage.classList.add('enabledButton');
+            previousPage.classList.remove('disabledButton');
+            previousPage.disabled = false;
+            firstPage.classList.add('enabledButton');
+            firstPage.classList.remove('disabledButton');
+            firstPage.disabled = false;
+        }
+        
+        totalPages = await getPages(required);
+
+        if (parseInt(developerPass.get("page")) === totalPages) {
+
+            nextPage.classList.remove('enabledButton');
+            nextPage.classList.add('disabledButton');
+            nextPage.disabled = true;
+            lastPage.classList.remove('enabledButton');
+            lastPage.classList.add('disabledButton');
+            lastPage.disabled = true;
+        }
+        else {
+
+            nextPage.classList.add('enabledButton');
+            nextPage.classList.remove('disabledButton');
+            nextPage.disabled = false;
+            lastPage.classList.add('enabledButton');
+            lastPage.classList.remove('disabledButton');
+            lastPage.disabled = false;
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
+
+
+const previousPage = document.getElementById("previousPage");
+const nextPage = document.getElementById("nextPage");
+const firstPage = document.getElementById("firstPage");
+const lastPage = document.getElementById("lastPage");
+
+nextPage.addEventListener("click",  () =>{
+    const developerPass = new URLSearchParams(window.location.search);
+    const page = parseInt(developerPass.get("page")) + 1;
+    const offset = (page - 1) * 20;
+    developerPass.set("offset", offset.toString());
+    developerPass.set("page", page.toString());
+    window.location.href = window.location.pathname + "?" + developerPass.toString();
+});
+
+previousPage.addEventListener("click", () => {
+    const developerPass = new URLSearchParams(window.location.search);
+    const page = parseInt(developerPass.get("page")) - 1;
+    const offset = (page - 1) * 20;
+    developerPass.set("offset", offset.toString());
+    developerPass.set("page", page.toString());
+    window.location.href = window.location.pathname + "?" + developerPass.toString();
+});
+
+firstPage.addEventListener("click", () =>{
+    const developerPass = new URLSearchParams(window.location.search);
+    developerPass.set("offset", "0");
+    developerPasss.set("page", "1");
+    window.location.href = window.location.pathname + "?" + developerPass.toString();
+});
+
+lastPage.addEventListener("click", () =>{
+    return awaiter(this, void 0, void 0, () => {
+        let developerPass, page, offset;
+        return generator(this, (_a) => {
+            developerPass = new URLSearchParams(window.location.search);
+            page = totalPages;
+            offset = (page - 1) * 20;
+            developerPass.set("offset", offset.toString());
+            developerPass.set("page", page.toString());
+            window.location.href = window.location.pathname + "?" + developerPass.toString();
+            return [2];
+        });
+    });
+});
+
+const cardsResultados = document.getElementById('cardsResultados');
+const cardInfo = document.getElementById('card-info');
+const paginas = document.getElementById('paginas');
+
+const convertDateFormat = (date) => {
+    return new Intl.DateTimeFormat('es-AR').format(new Date(date))
+}
+
+
+const createCharacterInfo = (element) => {
+    cardInfo.innerHTML = "";
+    const img = document.createElement("img");
+    const info = document.createElement("div");
+    const name = document.createElement("h2");
+    const description = document.createElement("p");
+    img.setAttribute("src", element.thumbnail.path + "." + element.thumbnail.extension);
+    img.classList.add("card-info-img");
+    name.classList.add("card-info-name");
+    const nameTxt = document.createTextNode(element.name);
+    const descriptionTxt = document.createTextNode(element.description);
+    name.appendChild(nameTxt);
+    description.appendChild(descriptionTxt);
+    cardInfo.appendChild(img);
+    info.appendChild(name);
+    info.appendChild(description);
+    cardInfo.appendChild(info);
+};
+
+
+const createComicInfo = (element) => {
+    cardInfo.innerHTML = "";
+    const img = document.createElement("img");
+    const info = document.createElement("div");
+    const title = document.createElement("h2");
+    const publishedTitle = document.createElement("h3");
+    const writerTitle = document.createElement("h3");
+    const descriptionTitle = document.createElement("h3");
+    const published = document.createElement("p");
+    const writer = document.createElement("p");
+    const description = document.createElement("p");
+    img.setAttribute("src", element.thumbnail.path + "." + element.thumbnail.extension);
+    img.classList.add("card-info-img");
+    publishedTitle.classList.add("card-info-title");
+    title.classList.add("card-info-title");
+    writerTitle.classList.add("card-info-title");
+    descriptionTitle.classList.add("card-info-title");
+    published.classList.add("card-info-p");
+    writer.classList.add("card-info-p");
+    description.classList.add("card-info-p");
+    const titleTxt = document.createTextNode(element.title);
+    title.appendChild(titleTxt);
+    cardInfo.appendChild(img);
+    info.appendChild(title);
+
+    
+    const publishedTitleTxt = document.createTextNode("Published:");
+    publishedTitle.appendChild(publishedTitleTxt);
+    info.appendChild(publishedTitle);
+
+    const dateData = element.dates.map( (element) => {
+        const releaseDate = "";
+        if (element.type === 'onsaleDate') {
+            return convertDateFormat(element.date);
+        }
+    }).join('');
+
+    const publishedTxt = document.createTextNode(dateData);
+    published.appendChild(publishedTxt);
+    info.appendChild(published);
+    
+   const writerTitleTxt = document.createTextNode("Writers:");
+    writerTitle.appendChild(writerTitleTxt);
+    info.appendChild(writerTitle);
+    const formatName = (items) =>{
+        const writer = "";
+        if (items.role === 'writer') {
+            writer = items.name;
+        }
+        return writer;
+    };
+    const writerData = element.creators.items.map(formatName).join("");
+    const writerTxt = document.createTextNode(writerData);
+    writer.appendChild(writerTxt);
+    info.appendChild(writer);
+    
+    const descriptionTitleTxt = document.createTextNode("Description:");
+    descriptionTitle.appendChild(descriptionTitleTxt);
+    info.appendChild(descriptionTitle);
+    const descriptionTxt = document.createTextNode(element.description || "");
+    description.appendChild(descriptionTxt);
+    info.appendChild(description);
+    cardInfo.appendChild(info);
+    updatingCountResults(0);
+};
+const cardsRelated = (response, type) =>{
+    cardsContainer.innerHTML = "";
+    if (response.data.total === 0) {
+        const notResults = document.createElement('h2');
+        const txtNotResults = document.createTextNode('Sin Resultados');
+        notResults.appendChild(txtNotResults);
+        cardsContainer.appendChild(notResults);
+        paginas.classList.add('d-none');
+    }
+    else {
+        paginas.classList.remove('d-none');
+        if (type === "comics") {
+            createCards(response, "characters");
+        }
+        else {
+            createCards(response, "comics");
+        }
+    }
+};
+
+const createCardInfo = async () => {
+    let cardsResponse = [];
+    const developerPass = new URLSearchParams(window.location.search);
+    let offset = developerPass.get("offset");
+    let inDeveloperPass = `?ts=1&apikey=${apiKey}&hash=${hash}&offset=${offset}`;
+    try {
+        if (developerPass.get("type") === "comics") {
+            const methodComicId = `/${developerPass.get("id")}${inDeveloperPass}`;
+            const methodComicIdCharacters = `/${developerPass.get("id")}/characters${inDeveloperPass}`;
+            const comicResponse = await getComics(methodComicId);
+            const dataComic = comicResponse.data.results;
+            cardsResponse = await getComics(methodComicIdCharacters);
+            cardsResultados.innerHTML = "Characters";
+            createComicInfo(dataComic[0]);
+        }
+        else {
+            const methodCharacterId = `/${developerPass.get("id")}${inDeveloperPass}`;
+            const methodCharacterIdComics = `/${developerPass.get("id")}/comics${inDeveloperPass}`;
+            const characterResponse = await getCharacters(methodCharacterId);
+            const dataCharacter = characterResponse.data.results;
+            cardsResponse = await getCharacters(methodCharacterIdComics);
+            cardsResultados.innerHTML = "Comics";
+            createCharacterInfo(dataCharacter[0]);
+        }
+        cardsRelated(cardsResponse, developerPass.get("type"));
+        disableButtons(cardsResponse);
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
+createCardInfo();
+
+
+
 
