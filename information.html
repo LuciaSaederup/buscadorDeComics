@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>buscadorDeComics</title>
-    <script src="https://kit.fontawesome.com/2d575903b5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="responsive.css">
+    <script src="https://kit.fontawesome.com/2d575903b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <div class="banner">
-        </div>
+        <div class="banner"></div>
     </header>
     <main>
         <div class="searchSection">
@@ -51,30 +50,49 @@
                 </div>
             </form>
         </div>
-        <div class="cardsSection">
-            <h2 class="cards-h2" id="cardsResultados">Resultados de su busqueda</h2>
-            <p class="cards-p" id="cardsSinResultados"> Sin resultados</p>
-            <div class="cards-container" id="cardsContainer">             
+        
+        <div class="card-info" id="card-info"></div>
+        <div class="cardsSection">            
+            <h2 class="cardsSection-h2" id="cardsResultados">Resultos</h2>
+            <p class="cardsSection-p" id="cardsSinResultados">0 RESULTADOS</p>          
+            <div id="cardsContainer" class="cardsContainer">            
             </div>
-        </div>   
-        <div class="paginas">
-        <div>
-            <button>
-                <i id="firstPage" class="fas fa-step-backward fa-3x enabledButton" aria-hidden="true" ></i>
-            </button>
-            <button>
-                <i id="previousPage" class="fas fa-backward fa-3x enabledButton" aria-hidden="true"></i>
-            </button>
-            <button>
-                <i id="nextPage" class="fas fa-forward fa-3x enabledButton" aria-hidden="true"></i>
-            </button>
-            <button>
-                <i id="lastPage" class="fas fa-step-forward fa-3x enabledButton" aria-hidden="true"></i>
-            </button>
         </div>
-    </div>
+        <div class="">
+            <h2 class=""></h2>
+            <p class="">
+                <span class=""></span>
+            </p>
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <img class="">
+                    </div>
+                    <div class="">
+                        <h3 class=""></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="paginas">
+            <div>
+                <button>
+                    <i id="firstPage" class="fas fa-step-backward fa-3x enabledButton" aria-hidden="true" ></i>
+                </button>
+                <button>
+                    <i id="previousPage" class="fas fa-backward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i id="nextPage" class="fas fa-forward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i id="lastPage" class="fas fa-step-forward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
     </main>
-    <footer></footer>
+    <footer>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
