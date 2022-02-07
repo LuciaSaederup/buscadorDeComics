@@ -9,61 +9,77 @@
     <script src="https://kit.fontawesome.com/2d575903b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="container">
-        <section id="presentacion">
+    <header>
+        <div class="banner">
 
-            <div id="banner" class="banner">
-
-            </div>
-            <nav class="navbar" id="navbar">
-                <section id="seccion-busqueda">
-                    <form id="form-busqueda">
-                        <input type="text" placeholder="Buscar comics" id="busqueda">
-                        <button type="submit" id="boton-buscar">Buscar</button>
-                    </form>
-                </section>
-
-                <div class="filtros">
-                    <form>
-                        <label for="filtros">Filtros
-                            <select name="tipo" id="filtro-tipo">
-                                <option value="comic">Comic</option>
-                                <option value="personaje">Personaje</option>
-                            </select>
-                            <select name="orden" id="filtro-orden">
-                                <option value="a-z">A-Z</option>
-                                <option value="z-a">Z-A</option>
-                                <option value="nuevos">Mas Nuevos</option>    
-                                <option value="viejos">Mas viejos</option>
-                            </select>
-                        </label>
-                    </form>
+        </div>
+    </header>
+    <main>
+        <div class="searchSection">
+            <h2 class="searchTitle-h2">BUSQUEDA DE COMICS</h2>
+            <form id="formSearch" class="searchContainer">
+                <div class="search">
+                    <i class="fas fa-search fa-2x"></i>
+                    <input name="searchTxt" class="search-input" id ="search" type="text" placeholder=" Escribe tu busqueda aquí">
                 </div>
-
-            </nav>
-        </section>
-        <section id="tarjetas">
-            <div id="div-tarjetas" class="contenedor-tarjetas">
-
-            </div>
-        </section>
-
-        <section id="detalle">
-            <div></div>
-        </section>
-        
-        <div id="controles">
-            <button id="prev">Pagina anterior</button>
-            <button id="next">Proxima pagina</button>
-        </div>   
-        <div id="controles-personaje">  
-            <button id="prev-personaje">Pagina anterior</button>
-            <button id="next-personaje">Proxima pagina</button>
+                <div class="searchFunciones">
+                    <div class="searchSelectors">
+                        <div class="selectorContainer">
+                            <label for="type" class="selectorContainer-label ">Tipo</label>
+                            <select name="type" id="type" class="selectorContainer-select">
+                                <option value="comics" class="options-style-1">COMICS</option>
+                                <option value="characters"class="options-style-1" >PERSONAJES</option>
+                            </select>
+                        </div>
+                        <div class="selectorContainer">
+                            <label class="selectorContainer-label">Ordenado por</label>
+                            <select name="orderComicsBy" id="orderComicsBy" class="selectorContainer-select">
+                                <option value="title"class="options-style-2" > A - Z </option>
+                                <option value="-title" class="options-style-2"> Z - A </option>
+                                <option value="-focDate" class="options-style-2">Recientes</option>
+                                <option value="focDate" class="options-style-2">Antiguos</option>
+                            </select>
+                            <select name="orderCharactersBy" id="orderCharactersBy" class="selectorContainer-select d-none">
+                                <option value="name" class="options-style-2">A-Z</option>
+                                <option value="-name" class="options-style-2">Z-A</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="searchButton">
+                        <input type="submit" value="BUSCAR" class="searchButton-input">
+                    </div>
+                </div>
+            </form>
         </div>
         
-    </div>
-</body>
-<script src="index.js"></script>
+        <div class="cardsSection">            
+            <h2 class="cardsSection-h2" id="cardsResultados">Resultados</h2>
+            <p class="cardsSection-p" id="cardsSinResultados">0 Resultados</p>          
+            <div id="cardsContainer" class="cardsContainer">  
+            </div>
+        </div>
+        <div class="paginas">
+            <div>
+                <button>
+                    <i id="firstPage" class="fas fa-step-backward fa-3x enabledButton" aria-hidden="true" ></i>
+                </button>
+                <button>
+                    <i id="previousPage" class="fas fa-backward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i id="nextPage" class="fas fa-forward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+                <button>
+                    <i id="lastPage" class="fas fa-step-forward fa-3x enabledButton" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+    
+    <script src="index.js"></script>
 
 </body>
 </html>
