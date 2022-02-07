@@ -24,49 +24,8 @@ main {
   margin-bottom: 50px;
 }
 
-
-.flexColumn, .searchSelectors, header {
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.contentCenter, header {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.secondaryTitles, .searchSelectors .selectorContainer-label, .cardsSection-p {
-  width: 100px;
-  font-size: 1rem;
-  font-weight: bold;
-  color:#dd292f;
-}
-
-.d-none {
-  display: none;
-}
-
-
-footer {
-  height: 7rem;
-  text-align: center;
-}
-footer div {
-  height: 100%;
-  background-color: black;
-  color: white;
-  padding-top: 40px;
-}
-
 .cardsSection {
-  margin-top: 50px;
+  margin-top: 60px;
   
 }
 .cardsSection-h2 {
@@ -115,6 +74,96 @@ footer div {
   color: #dd292f;
 }
 
+.card-info-img {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+.card-info-name {
+  margin-bottom: 20px;
+}
+.card-info-title {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.card-info-p {
+  margin-bottom: 20px;
+}
+
+.paginas {
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+.paginas button {
+  margin: 8px;
+  border: none;
+}
+.paginas button .enabledButton {
+  color: black;
+  cursor: pointer;
+}
+.paginas button .enabledButton:hover {
+  color: #dd292f;
+}
+
+.paginas button .disabledButton {
+  color: grey;
+}
+
+.searchSection {
+  margin-top: 60px;
+  width: 80vw;
+  
+}
+
+.search{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.searchTitle-h2{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search-input {
+  border: 0;
+  font-size: 1rem;
+  margin-left: 5px;
+  outline: none;
+}
+
+.options-style-1{ 
+  font-weight: 500;
+}
+
+
+.options-style-2{
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.searchSelectors .selectorContainer {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.searchSelectors .selectorContainer-select {
+  width: 120px;
+  border: 0;
+  font-weight: 500;
+  margin-right: 20px;
+}
 
 .searchSection {
   margin-top: 60px;
@@ -196,47 +245,43 @@ footer div {
   width: 90vw;
 }
 
-.paginas {
+footer {
+  height: 7rem;
+  text-align: center;
+}
+footer div {
+  height: 100%;
+  background-color: black;
+  color: white;
+  padding-top: 40px;
+}
+
+
+.flexColumn, .searchSelectors {
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.contentCenter, header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 80px;
-}
-.paginas button {
-  margin: 8px;
-  border: none;
-}
-.paginas button .enabledButton {
-  color: black;
-  cursor: pointer;
-}
-.paginas button .enabledButton:hover {
-  color: #dd292f;
-}
-.paginas button .disabledButton:hover {
-  color: #dd292f;
-}
-.paginas button .disabledButton {
-  color: black;
-}
-.card-info-img {
-  width: 100%;
-  margin-top: 80px;
-  margin-bottom: 30px;
-}
-.card-info-name {
-  margin-bottom: 20px;
-}
-.card-info-title {
-  margin-bottom: 40px;
-  margin-top: 40px;
-}
-.card-info-p {
-  margin-bottom: 20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
+.secondaryTitles, .searchSelectors .selectorContainer-label, .cardsSection-p {
+  width: 100px;
+  font-size: 1rem;
+  font-weight: bold;
+  color:#dd292f;
+}
 
-
+.d-none {
+  display: none;
+}
 
