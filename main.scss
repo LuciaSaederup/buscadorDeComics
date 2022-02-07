@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+$primary-color: black;
+$secondary-color: white;
+$third-color: #dd292f;
+$fourth-color: grey;
+
+$xs-spacing: 5px;
+$s-spacing: 10px;
+$m-spacing: 15px;
+$l-spacing: 20px;
+$l-spacing2:30px;
+$normal-spacing:40px;
+$xl-spacing:60px;
+$xxl-spacing:80px;
+$complete: 100%;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+main{
+    margin-right: $l-spacing;
+    margin-left: $l-spacing;       
+   
+}
+
+.banner {
+    width: 100%;
+    min-height: 400px;
+    background-image: url("marvel.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+.cardsSection{      
+    margin-top: $xl-spacing;
+    &-h2{
+        margin-bottom: $l-spacing;
+    }
+    &-p{
+        @extend .secondaryTitles;
+        margin-bottom: 50px;
+    }   
+    @media only screen and (min-width: 768px) {
+        display: flex; 
+        flex-direction: column;       
+        justify-content: start;
+        width: 80vw;     
+        &-h2{  
+            margin-left: $s-spacing;
+        }
+        &-p{
+            margin-left: $s-spacing;
+        }
+    }
+}
+.card{
+    margin-bottom: $xl-spacing;
+    margin-top: $xl-spacing;
+    cursor: pointer;
+    &-img{
+        width: $complete;
+        height: 400px;
+        box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 4px 11px 8px rgba(0,0,0,0.37);
+        transform: translateY(0);
+        transition: 0.2s;       
+    }
+    &-h3{
+        font-size: 0.9rem;
+        margin-bottom: $l-spacing;
+        margin-top: $s-spacing;
+        
+    }
+    @media only screen and (min-width: 768px){
+        width: calc(100% / 5 - 2 * 10px);
+        margin: 0 10px 40px;
+        &-img{
+            height: 320px;
+        }
+    }
+}
+.card:hover{
+    transform: translateY(-10px); 
+    transform:scale(1.25);
+}
+
+.links{
+    text-decoration: none;
+    color: $primary-color;
+}
+.links:hover{    
+    color: $third-color;
+}
+
+@media only screen and (min-width: 768px) {
+    .cardsContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;        
+        flex-wrap: wrap;
+    }    
+}
+
+.card-info{
+    &-img{
+        width: $complete;
+        margin-top: $xxl-spacing;
+        margin-bottom: 30px;
+    }
+    &-name{
+        margin-bottom: $l-spacing;
+    }
+    &-title{
+        margin-bottom: $normal-spacing;
+        margin-top: $normal-spacing;
+    }
+    &-p{
+        margin-bottom: $l-spacing;
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content:center;
+        width: 80vw;
+        margin-top: $l-spacing;
+        &-img{
+            width: 30%;
+            margin: 0;
+            margin-right: $l-spacing;
+        }
+    }
+}
+
+.paginas{
+    display: flex;
+    justify-content:center;
+    margin-top: $xl-spacing;
+    margin-bottom: $xxl-spacing;
+
+    button{
+        margin:8px;
+        border: none;
+        .enabledButton{
+           background-color: $primary-color;
+           cursor: pointer;
+           &:hover{
+            background-color: $third-color;
+           }
+        }
+
+        .disabledButton{
+           background-color: $fourth-color;
+        }
+    }
+}
+.searchSection{
+    margin-top: $xl-spacing;     
+    width: 80vw;
+
+    @media only screen and (min-width: 768px){
+        padding: 0 $s-spacing;
+    }
+}
+
+.search{
+    margin-bottom: $l-spacing;
+    margin-top: $l-spacing;
+    border-bottom: 1px solid #151515;
+    margin-right: $l-spacing;
+    align-items: center;
+    display: flex;
+
+    @media only screen and (min-width: 768px){
+        min-width: 50%;
+        flex-grow: 1;             
+    }     
+
+    &-input{
+        border: 0;
+        font-size: 1rem;
+        margin-left: $xs-spacing;  
+        outline: none;
+        
+        @media only screen and (min-width: 768px){           
+            font-size: 2rem;
+        }    
+    }
+}
+
+.options-style-1{ 
+    font-weight: 500;
+}
+  
+  
+.options-style-2{
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+.searchSelectors{
+    @extend .flexColumn;
+    @media only screen and (min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+    .selectorContainer{
+        margin-bottom: $l-spacing;
+        display: flex;
+        &-label{
+            @extend .secondaryTitles;   
+            @media only screen and (min-width: 768px){  
+                font-size: 1rem;
+            }
+        }
+        &-select{
+            width:120px;
+            border:0;
+            font-weight: 500;
+            margin-right: $l-spacing;
+            @media only screen and (min-width: 768px){
+                font-size: 1rem;
+                width:130px;
+            }
+        }
+    }    
+    @media only screen and (min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &-label{
+            margin: 0;
+        }
+    }
+}
+.searchButton{
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-end;  
+    &-input{
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: 1;
+        padding: $s-spacing 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius:10px;
+        border:1;
+        @media only screen and (min-width: 768px){  
+            font-size: 1.2rem;
+        }
+    }
+    &-input:hover{
+        background-color: $third-color;
+       }
+}
+.searchContainer {   
+    width: 90vw;
+
+    @media only screen and (min-width: 768px){     
+    width: 80vw; 
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;       
+    flex-wrap: wrap;  
+    }    
+}
+@media only screen and (min-width: 768px){   
+    .searchFunciones{       
+        display: flex;
+        flex-direction: row;                      
+        align-items: center;        
+        padding-right: $l-spacing;         
+        flex-grow: 1;
+    }    
+}
+
+footer{
+    height: 7rem;
+    text-align: center;
+    div{
+        height: $complete;
+        background-color: $primary-color;
+        color: $secondary-color;
+        padding-top: $normal-spacing;
+    }
+}
+
+.banner{
+    width: $complete;
+    min-height: 400px;
+    background-image: url("marvel.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+.contentCenter{
+    justify-content: center;
+    align-items: center;
+}
+.secondaryTitles{
+    width:100px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $fourth-color;
+}
+.d-none{
+    display: none;
+}
+
+.selectorContainer-label{
+    color: $third-color;
+}
+
+
