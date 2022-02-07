@@ -1,4 +1,3 @@
-
 const paginadoComic = document.querySelector("#controles")
 const paginadoPersonaje = document.querySelector("#controles-personaje")
 const prev = document.querySelector("#prev")
@@ -37,6 +36,19 @@ fetch("http(s)://gateway.marvel.com/")
     
     let comicGlobal = 0
 
+    const listaComics = () => {
+    console.log(busqueda)
+    
+    fetch(`https://gateway.marvel.com:443/v1/public/comics?${busqueda}orderBy=${globalOrdenBy}&offset=${comicGlobal}&apikey=93c0e369ba23b10fe80edb027c368e12`)
+    
+    .then((res) => res.json())
+    .then((data) => {
+    console.log(data.data.results)
+         paginadoPersonaje.style.display = "none"
+         paginadoComic.style.display = "block"
+         hacerHTMLTarjetas(data.data.results)
+       })
+    }
 
     const listaComics = () => {
     console.log(busqueda)
@@ -165,13 +177,10 @@ prevPersonaje.onclick = () => {
        prev.disabled = true
    }
 
-  
    personajesASaltar -= 20
    listaPersonajes()
  
 }
-
-
 
 
 //  boton para filtros y busqueda
